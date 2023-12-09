@@ -1,0 +1,21 @@
+.card {
+    border: 1px solid #988888;
+    padding: 30px;
+    margin: 10px;
+    background-color: #382a2a;
+    display: inline-block;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+img {
+    height: 150px;
+    width: 170px;
+}
+.btn{
+    text-align: center;
+}
+
