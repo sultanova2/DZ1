@@ -20,12 +20,94 @@ let positionX=0
 let positionY=0
 
 const moveChildBlock=()=>{
-    if(positionX<=448 ){
-        positionX++
-        childBlock.style.left=`${positionX}px`
-        setTimeout(moveChildBlock,10)
+        if(positionX<449  && positionY === 0){
+            positionX++
+            childBlock.style.left=`${positionX}px`
+            setTimeout(moveChildBlock,10)
+        }else if ( positionX >= 449 && positionY < 449){
+            positionY++
+            childBlock.style.top=`${positionY}px`
+            setTimeout(moveChildBlock,10)
+        }else if ( positionX > 0 && positionY > 0) {
+            positionX--
+            childBlock.style.left =` ${positionX}px`
+            setTimeout(moveChildBlock, 10)
+        }else if (positionX === 0 && positionY > 0){
+               positionY--
+               childBlock.style.top=`${positionY}px`
+              setTimeout(moveChildBlock,10)
     }}
+    
 moveChildBlock()
+
+
+
+const starBtn= document.querySelector('#start')
+const stopBtn = document.querySelector('#stop')
+const resetBtn = document.querySelector('#reset')
+
+let displayValue=0
+let interval;
+starBtn.addEventListener('click', ()=>{
+    toIncrease()
+})
+stopBtn.addEventListener('click', ()=>{
+    toStop()
+})
+resetBtn.addEventListener('click', ()=>{
+    toReset()
+})
+
+
+function toIncrease() {
+    interval=setInterval(()=>{
+        displayValue++
+        document.querySelector('.interval').innerHTML=displayValue;
+        setTimeout(interval,1000)
+    })
+}
+function toStop(){
+    clearInterval(interval)
+}
+function toReset(){
+    clearInterval(interval)
+    displayValue=0
+    document.querySelector('.interval').innerHTML=displayValue
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
